@@ -1,0 +1,37 @@
+<template name="register">
+    <div class="row centered">
+        <div class="large-4 large-centered columns">
+            {{#if verificationEmailSent}}
+    			<div class="info">
+    				<h2>
+    					Dziękujemy za zarejestrowanie się!
+    				</h2>
+    				<p>
+    					Wysłaliśmy na twój adres e-mail link weryfikacyjny.
+    				</p><br />
+    				<button id="ok" class="expanded button">OK</button>
+    			</div>
+    		{{else}}
+                <form>
+                    <h2>Zarejestruj się</h2>
+                    {{#if errorMessage}}
+        				<div class="alert">
+        					{{errorMessage}}
+        				</div>
+        			{{/if}}
+                    <input id="register_name" type="text" placeholder="Imię i nazwisko" autofocus>
+                    <input id="register_email" type="text" placeholder="Adres e-mail">
+                    <input id="register_password" type="password" placeholder="Hasło">
+                    <input id="register_confirm_password" type="password" placeholder="Powtórz hasło">
+                    <button type="submit" class="expanded button">Zarejestruj</button>
+        			<p>
+        				Masz już konto?
+        				<a href="{{path}}" class="link">
+        					Zaloguj się
+        				</a>
+        			</p>
+                </form>
+            {{/if}}
+        </div>
+    </div>
+</template>

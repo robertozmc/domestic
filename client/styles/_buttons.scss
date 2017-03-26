@@ -1,0 +1,68 @@
+$button-color: #f68a00;
+$search-button-color: #29c30d;
+$transparent: rgba(0, 0, 0, 0);
+$back-button-color: rgba(0, 0, 0, 0.05);
+$cancel-button-color: #aaaaaa;
+$accept-button-color: #00ba13;
+
+.button {
+    background-color: $button-color;
+    &:hover {
+        background-color: darken($button-color, 5%);
+    }
+    &:focus {
+        background-color: $button-color;
+    }
+}
+
+.button-search {
+    background-color: $search-button-color;
+    &:hover {
+        background-color: darken($search-button-color, 5%);
+    }
+    &:focus {
+        background-color: $search-button-color;
+    }
+}
+
+.button-back {
+    color: black;
+    background-color: $transparent;
+    font-size: 20pt;
+    margin-left: -20pt;
+    &:hover {
+        background-color: $back-button-color;
+    }
+    &:focus {
+        color: black;
+        background-color: $transparent;
+    }
+}
+
+.button-remove-all {
+    float: right;
+}
+
+.button-cancel {
+    background-color: $cancel-button-color;
+    &:hover {
+        background-color: darken($cancel-button-color, 5%);
+    }
+    &:focus {
+        background-color: $cancel-button-color;
+    }
+}
+
+.button-accept {
+    background-color: $accept-button-color;
+    &:hover {
+        background-color: darken($accept-button-color, 5%);
+    }
+    &:focus {
+        background-color: $accept-button-color;
+    }
+}
+
+.vex-dialog-button-primary {
+    background: $button-color !important;
+}

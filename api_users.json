@@ -1,0 +1,8 @@
+{
+  "user_id":"ID",
+  "type":["Typ"],
+  "first_name":"Imię",
+  "last_name":"Nazwisko",
+  "dob":"1970-01-01",
+  "height":"200"
+}

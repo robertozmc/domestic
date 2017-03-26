@@ -1,0 +1,54 @@
+<template name="sleapEdit">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Edytuj
+            </h1>
+        </div>
+    </div>
+    {{> sleapEditRow name="ID pomiaru" value=sleap.measurement_guid.id id="measurement-id"}}
+    {{> sleapEditRow name="ID użytkownika" value=sleap.user_id id="user-id"}}
+    {{> sleapEditRow name="Waga" value=sleap.weight id="weight"}}
+    {{> sleapEditRow name="Beztłuszczowa masa ciała" value=sleap.ffm id="ffm"}}
+    {{> sleapEditRow name="BMI" value=sleap.bmi id="bmi"}}
+    {{> sleapEditRow name="Saturacja krwi" value=sleap.saturation id="saturation"}}
+    {{> sleapEditRow name="Puls" value=sleap.pulse id="pulse"}}
+    {{> sleapEditRowDate name="Data pomiaru" value=sleap.measure_date}}
+    <div class="row">
+        <div class="large-2 columns">
+            <div class="button button-cancel expanded inline" id="cancel">
+                Anuluj
+            </div>
+        </div>
+        <div class="large-2 columns end">
+            <div class="button button-accept expanded inline" id="accept">
+                Zapisz
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="sleapEditRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type="text" value="{{value}}" id="{{id}}" autofocus>
+        </div>
+    </div>
+</template>
+
+<template name="sleapEditRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type="text" value="{{formatDate value}}" class="form-control" id="datepicker">
+        </div>
+    </div>
+</template>

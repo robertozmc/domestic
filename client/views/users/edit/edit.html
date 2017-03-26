@@ -1,0 +1,52 @@
+<template name="userEdit">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Edytuj
+            </h1>
+        </div>
+    </div>
+    {{> userEditRow name="ID użytkownika" value=user.user_id id="user-id"}}
+    {{> userEditRow name="Typ" value=user.type id="type"}}
+    {{> userEditRow name="Imię" value=user.first_name id="first-name"}}
+    {{> userEditRow name="Nazwisko" value=user.last_name id="last-name"}}
+    {{> userEditRowDate name="Data urodzenia" value=user.dob id="dob"}}
+    {{> userEditRow name="Wzrost" value=user.height id="height"}}
+    <div class="row">
+        <div class="large-2 columns">
+            <div class="button button-cancel expanded inline" id="cancel">
+                Anuluj
+            </div>
+        </div>
+        <div class="large-2 columns end">
+            <div class="button button-accept expanded inline" id="accept">
+                Zapisz
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="userEditRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type=text value="{{value}}" id="{{id}}" autofocus>
+        </div>
+    </div>
+</template>
+
+<template name="userEditRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type="text" value="{{formatDate value}}" class="form-control" id="datepicker">
+        </div>
+    </div>
+</template>

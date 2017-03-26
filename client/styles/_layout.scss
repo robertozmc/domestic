@@ -1,0 +1,18 @@
+body {
+    background-image: url("images/background.jpg");
+}
+
+.inline {
+    display: inline-block;
+}
+
+.download_link {
+    color: $button-color;
+    font-size: 1.8em;
+    &:hover {
+        color: darken($button-color, 10%);
+    }
+    &:focus {
+        color: $button-color;
+    }
+}

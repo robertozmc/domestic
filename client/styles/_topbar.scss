@@ -1,0 +1,29 @@
+$primary-color: #f68a00;
+
+.logo {
+    line-height: 48px;
+
+    img {
+        height: 48px;
+    }
+}
+
+.menu-items {
+    list-style-type: none;
+    line-height: 48px;
+    margin-bottom: 0;
+
+    .menu-item {
+        display: inline-block;
+        width: auto;
+        height: 48px;
+        padding-right: 20pt;
+        a {
+            color: #f68a00;
+        }
+    }
+}
+
+.user-name {
+    color: darken($primary-color, 5%);
+}

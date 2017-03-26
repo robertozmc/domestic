@@ -1,0 +1,59 @@
+<template name="sleapDetails">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Szczegóły
+            </h1>
+        </div>
+    </div>
+    {{> sleapDetailsRow name="ID" value=sleap._id}}
+    {{> sleapDetailsRow name="ID pomiaru" value=sleap.measurement_id}}
+    {{> sleapDetailsRow name="ID użytkownika" value=sleap.user_id}}
+    {{#if sleap.sleap_data}}
+        {{> sleapFileRow name="Dane SleAp"}}
+    {{/if}}
+    {{> sleapDetailsRowDate name="Data pomiaru" value=sleap.measure_date}}
+    {{> sleapDetailsRowDate name="Data wprowadzenia" value=sleap.insert_date}}
+    {{> sleapDetailsRowDate name="Data modyfikacji" value=sleap.edit_date}}
+</template>
+
+<template name="sleapDetailsRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <h4>{{value}}</h4>
+        </div>
+    </div>
+    <hr>
+</template>
+
+<template name="sleapFileRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <a href="{{file.url download=true}}" class="download_link" target="_parent">Pobierz</a>
+        </div>
+    </div>
+    <hr>
+</template>
+
+<template name="sleapDetailsRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            {{#if value}}
+                <h4>{{formatDateTime value}}</h4>
+            {{/if}}
+        </div>
+    </div>
+    <hr>
+</template>

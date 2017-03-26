@@ -1,0 +1,51 @@
+<template name="userDetails">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Szczegóły
+            </h1>
+        </div>
+    </div>
+    {{> userDetailsRow name="ID" value=user._id}}
+    {{> userDetailsRow name="Typ użytkownika" value=user.type}}
+    {{> userDetailsRow name="ID użytkownika" value=user.user_id}}
+    {{> userDetailsRow name="Imię" value=user.first_name}}
+    {{> userDetailsRow name="Nazwisko" value=user.last_name}}
+    {{#if user.dob}}
+        {{> userDetailsRowDate name="Data urodzenia" value=user.dob}}
+    {{/if}}
+    {{#if user.height}}
+        {{> userDetailsRow name="Wzrost" value=user.height}}
+    {{/if}}
+    {{> userDetailsRowDate name="Data wprowadzenia" value=user.insert_date}}
+    {{> userDetailsRowDate name="Data modyfikacji" value=user.edit_date}}
+</template>
+
+<template name="userDetailsRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <h4>{{value}}</h4>
+        </div>
+    </div>
+    <hr>
+</template>
+
+<template name="userDetailsRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            {{#if value}}
+                <h4>{{formatDateTime value}}</h4>
+            {{/if}}
+        </div>
+    </div>
+    <hr>
+</template>

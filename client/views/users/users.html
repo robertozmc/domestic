@@ -1,0 +1,131 @@
+<template name="users">
+    <div class="row header">
+        <div class="large-12 columns">
+            <h1>Użytkownicy</h1>
+        </div>
+        {{#if notEmpty}}
+            <div class="large-3 columns">
+                <input type="text" class="search" id="search-input" placeholder="Szukaj" value="" autofocus>
+            </div>
+            <div class="large-1 columns">
+                <button type="button" class="button button-search" id="search-button">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+            <div class="large-1 columns">
+                <div class="button" id="import">
+                    Importuj
+                </div>
+            </div>
+            <div class="large-2 columns">
+                <div class="button-group">
+                    <a class="button" id="export-default">Eksportuj</a>
+                    <a class="dropdown button arrow-only" data-toggle="dropdown"></a>
+                    <div class="dropdown-pane tiny" id="dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <a class="button menu" id="export-csv">CSV</a>
+                            </div>
+                            <div class="large-12 columns">
+                                <a class="button menu" id="export-tsv">TSV</a>
+                            </div>
+                            <div class="large-12 columns">
+                                <a class="button menu" id="export-json">JSON</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="large-2 columns">
+                <div class="button button-remove-all">
+                    Usuń wszystkie dane
+                </div>
+            </div>
+        {{else}}
+            <div class="large-3 columns">
+                <h3>Brak użytkowników</h3>
+            </div>
+            <div class="large-1 columns end">
+                <div class="button" id="import">
+                    Importuj
+                </div>
+            </div>
+        {{/if}}
+    </div>
+    {{#if resourcesReady}}
+        {{#if notEmpty}}
+            <div class="row">
+                <div class="large-12 columns">
+                    <table>
+                		<thead>
+                			<tr>
+                				<th class="sort" data-sort="id">
+                					ID
+                				</th>
+                                <th class="sort" data-sort="type">
+                                    Typ użytkownika
+                                </th>
+                				<th class="sort" data-sort="first_name">
+                					Imię
+                				</th>
+                				<th class="sort" data-sort="last_name">
+                					Nazwisko
+                				</th>
+                				<th class="sort" data-sort="dob">
+                					Data urodzenia
+                				</th>
+                                <th class="sort" data-sort="height">
+                					Wzrost
+                				</th>
+                				<th>
+                					&nbsp;
+                				</th>
+                				<th>
+                					&nbsp;
+                				</th>
+                			</tr>
+                		</thead>
+                		<tbody>
+                            {{#each records}}
+                                <tr>
+                                    <td>
+                                        {{user_id}}
+                                    </td>
+                                    <td>
+                                        {{type}}
+                                    </td>
+                                    <td>
+                                        {{first_name}}
+                                    </td>
+                                    <td>
+                                        {{last_name}}
+                                    </td>
+                                    <td>
+                                        {{#if dob}}
+                                            {{formatDate dob}}
+                                        {{/if}}
+                                    </td>
+                                    <td>
+                                        {{height}}
+                                    </td>
+                                    <td>
+                                        <a id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edytuj">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Usuń">
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                		</tbody>
+                	</table>
+                </div>
+            </div>
+        {{else}}
+            {{>noResults}}
+        {{/if}}
+    {{else}}
+        {{>loading}}
+    {{/if}}
+</template>

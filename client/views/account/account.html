@@ -1,0 +1,107 @@
+<template name="account">
+    <div class="row header">
+        <div class="large-2 columns">
+            <h1>Konto</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            {{> accountButton name="Zmiana danych" id="change-data"}}
+            {{> accountButton name="Zmiana hasła" id="change-password"}}
+            {{> accountButton name="Usuń konto" id="remove-account"}}
+        </div>
+        <div class="large-6 columns">
+            {{#if changeData}}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Zmiana danych</h3>
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Adres e-mail</h5>
+                    </div>
+                    <div class="large-12 columns">
+                        <input type="text" value="{{userEmail}}" id="email" placeholder="Adres e-mail">
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Imię i nazwisko</h5>
+                    </div>
+                    <div class="large-12 columns">
+                        <input type="text" value="{{userName}}" id="name" placeholder="Imię i nazwisko">
+                    </div>
+                    <div class="large-12 columns">
+                        <a class="button button-cancel inline" id="cancel">
+                            Anuluj
+                        </a>
+                        <a class="button button-accept inline" id="accept-data">
+                            Zapisz
+                        </a>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if changePassword}}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Zmiana hasła</h3>
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Stare hasło</h5>
+                    </div>
+                    <div class="large-12 columns">
+                        <input type="password" value="" id="old-password" placeholder="Stare hasło">
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Nowe hasło</h5>
+                    </div>
+                    <div class="large-12 columns">
+                        <input type="password" value="" id="new-password" placeholder="Nowe hasło">
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Powtórz hasło</h5>
+                    </div>
+                    <div class="large-12 columns">
+                        <input type="password" value="" id="new-password-confirm" placeholder="Powtórz nowe hasło">
+                    </div>
+                    <div class="large-12 columns">
+                        <a class="button button-cancel inline" id="cancel">
+                            Anuluj
+                        </a>
+                        <a class="button button-accept inline" id="accept-password">
+                            Zapisz
+                        </a>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if removeAccount}}
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>Usuwanie konta</h3>
+                    </div>
+                    <div class="large-12 columns">
+                        <h5>Czy na pewno chcesz usunąć swoje konto?</h5>
+                        <h6>Nie będzie możliwe cofnięcie tej operacji.</h6>
+                    </div>
+                    <div class="large-12 columns">
+                        <a class="button button-cancel inline" id="cancel">
+                            Nie
+                        </a>
+                        <a class="button button-accept inline" id="accept-remove">
+                            Tak
+                        </a>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="accountButton">
+    <div class="row">
+        <div class="large-6 columns">
+            <a class="button expanded" id="{{id}}">
+                {{name}}
+            </a>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,54 @@
+<template name="iwagaEdit">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Edytuj
+            </h1>
+        </div>
+    </div>
+    {{> iwagaEditRow name="ID pomiaru" value=iwaga.measurement_id id="measurement-id"}}
+    {{> iwagaEditRow name="ID użytkownika" value=iwaga.user_id id="user-id"}}
+    {{> iwagaEditRow name="Waga" value=iwaga.weight id="weight"}}
+    {{> iwagaEditRow name="Beztłuszczowa masa ciała" value=iwaga.ffm id="ffm"}}
+    {{> iwagaEditRow name="BMI" value=iwaga.bmi id="bmi"}}
+    {{> iwagaEditRow name="Saturacja krwi" value=iwaga.saturation id="saturation"}}
+    {{> iwagaEditRow name="Puls" value=iwaga.pulse id="pulse"}}
+    {{> iwagaEditRowDate name="Data pomiaru" value=iwaga.measure_date}}
+    <div class="row">
+        <div class="large-2 columns">
+            <div class="button button-cancel expanded inline" id="cancel">
+                Anuluj
+            </div>
+        </div>
+        <div class="large-2 columns end">
+            <div class="button button-accept expanded inline" id="accept">
+                Zapisz
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="iwagaEditRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type="text" value="{{value}}" id="{{id}}" autofocus>
+        </div>
+    </div>
+</template>
+
+<template name="iwagaEditRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <input type="text" value="{{formatDate value}}" class="form-control" id="datepicker">
+        </div>
+    </div>
+</template>

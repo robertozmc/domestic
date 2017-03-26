@@ -1,0 +1,39 @@
+domesticUsers:
+    _id:                string
+    user_id:            string
+    type:               string
+    first_name:         string
+    last_name:          string
+    dob:                date
+    height:             double
+    insert_date:        date
+    edit_date:          date
+iwagaData:
+    _id:                string
+    measurement_id:     string
+    user_id:            string
+    user_guid:          string
+    user:
+        first_name:     string
+        last_name:      string
+    weight:             double
+    ffm:                double
+    bmi:                double
+    saturation:         double
+    pulse:              double
+    ekg_data:           binary, BLOB
+    ekg_type:           string
+    measure_date:       date
+    insert_date:        date
+    edit_date:          date
+sleapData:
+    _id:                string
+    user_id:            string
+    user_guid:          string
+    user:
+        first_name:     string
+        last_name:      string
+    sleap_data:         binary, BLOB
+    measure_date:       date
+    insert_date:        date
+    edit_date:          date

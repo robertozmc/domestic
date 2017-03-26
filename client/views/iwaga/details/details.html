@@ -1,0 +1,67 @@
+<template name="iwagaDetails">
+    <div class="row header">
+        <div class="large-12 columns">
+            <a type="button" class="button button-back inline">
+                <span class="fa fa-angle-left"></span>
+            </a>
+            <h1 class="inline">
+                Szczegóły
+            </h1>
+        </div>
+    </div>
+    {{> iwagaDetailsRow name="ID" value=iwaga._id}}
+    {{> iwagaDetailsRow name="ID pomiaru" value=iwaga.measurement_id}}
+    {{> iwagaDetailsRow name="ID użytkownika" value=iwaga.user_id}}
+    {{> iwagaDetailsRow name="Waga" value=iwaga.weight}}
+    {{> iwagaDetailsRow name="Beztłuszczowa masa ciała" value=iwaga.ffm}}
+    {{> iwagaDetailsRow name="BMI" value=iwaga.bmi}}
+    {{> iwagaDetailsRow name="Saturacja krwi" value=iwaga.saturation}}
+    {{> iwagaDetailsRow name="Puls" value=iwaga.pulse}}
+    {{#if iwaga.ekg_data}}
+        {{> iwagaFileRow name="Dane EKG"}}
+    {{/if}}
+    {{#if iwaga.ekg_type}}
+        {{> iwagaDetailsRow name="Typ EKG" value=iwaga.ekg_type}}
+    {{/if}}
+    {{> iwagaDetailsRowDate name="Data pomiaru" value=iwaga.measure_date}}
+    {{> iwagaDetailsRowDate name="Data wprowadzenia" value=iwaga.insert_date}}
+    {{> iwagaDetailsRowDate name="Data modyfikacji" value=iwaga.edit_date}}
+</template>
+
+<template name="iwagaDetailsRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <h4>{{value}}</h4>
+        </div>
+    </div>
+    <hr>
+</template>
+
+<template name="iwagaFileRow">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            <a href="{{file.url download=true}}" class="download_link" target="_parent">Pobierz</a>
+        </div>
+    </div>
+    <hr>
+</template>
+
+<template name="iwagaDetailsRowDate">
+    <div class="row">
+        <div class="large-6 columns">
+            <h4>{{name}}</h4>
+        </div>
+        <div class="large-6 columns">
+            {{#if value}}
+                <h4>{{formatDateTime value}}</h4>
+            {{/if}}
+        </div>
+    </div>
+    <hr>
+</template>

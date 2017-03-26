@@ -1,0 +1,68 @@
+<template name="topbar">
+    <div class="top-bar">
+        <div class="top-bar-title">
+            <div class="logo">
+                <img src="/images/_logo.png">
+            </div>
+        </div>
+        <div class="top-bar-left">
+            <ul class="menu-items">
+        		<li class="menu-item">
+        			<a href="{{path 'home'}}">
+        				<span class="fa fa-home"></span>
+        				<span class="item-title">
+        					&nbsp;Start
+        				</span>
+        			</a>
+        		</li>
+        		<li class="menu-item">
+        			<a href="{{path 'iwaga'}}">
+        				<span class="fa fa-heartbeat"></span>
+        				<span class="item-title">
+        					&nbsp;iWaga
+        				</span>
+        			</a>
+        		</li>
+                <li class="menu-item">
+        			<a href="{{path 'sleap'}}">
+        				<span class="fa fa-bed"></span>
+        				<span class="item-title">
+        					&nbsp;SleAp
+        				</span>
+        			</a>
+        		</li>
+                <li class="menu-item">
+        			<a href="{{path 'users'}}">
+        				<span class="fa fa-group"></span>
+        				<span class="item-title">
+        					&nbsp;Użytkownicy
+        				</span>
+        			</a>
+        		</li>
+        	</ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu-items">
+                <li class="menu-item">
+                    <span class="user-name"><b>{{userName}}</b></span>
+                </li>
+                <li class="menu-item">
+                    <a href="{{path 'account'}}">
+                        <span class="fa fa-user"></span>
+                        <span>
+                            &nbsp;Konto
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a id="logout">
+                        <span class="fa fa-sign-out"></span>
+                        <span>
+                            &nbsp;Wyloguj
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>

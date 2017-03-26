@@ -1,0 +1,29 @@
+<template name="login">
+    <div class="row centered">
+        <div class="large-4 large-centered columns">
+            <form>
+                <h2>Zaloguj się</h2>
+                {{#if errorMessage}}
+    				<div class="alert">
+    					{{errorMessage}}
+    				</div>
+    			{{/if}}
+                <input id="login_email" type="text" placeholder="Adres e-mail" autofocus>
+                <input id="login_password" type="password" placeholder="Hasło">
+                <button type="submit" class="expanded button">Zaloguj</button>
+                <p>
+    				Nie masz konta?
+    				<a href="{{path 'register'}}" class="link">
+    					Zarejestruj się
+    				</a>
+    			</p>
+    			<p>
+    				Zapomniałeś hasła?
+    				<a href="{{path 'forgot'}}" class="link">
+    					Kliknij tutaj
+    				</a>
+    			</p>
+            </form>
+        </div>
+    </div>
+</template>

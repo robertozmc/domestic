@@ -1,0 +1,46 @@
+<template name="home">
+    <div class="row header">
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'iwaga_last_30_days'}}</h3>
+            <p>Pomiarów iWaga (30 dni)</p>
+        </div>
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'iwagaTotal'}}</h3>
+            <p>Wszystkich pomiarów iWaga</p>
+        </div>
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'sleap_last_30_days'}}</h3>
+            <p>Pomiarów SleAp (30 dni)</p>
+        </div>
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'sleapTotal'}}</h3>
+            <p>Wszystkich pomiarów SleAp</p>
+        </div>
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'domesticUsers_last_30_days'}}</h3>
+            <p>Użytkowników (30 dni)</p>
+        </div>
+        <div class="large-2 columns">
+            <h3>{{getPublishedCount 'domesticUsersTotal'}}</h3>
+            <p>Użytkowników</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <div id="legend">
+                <span class="fa fa-line-chart" id="legend-iwaga"></span>
+                <span class="item-title">
+                    &nbsp;<b>iWaga</b>
+                </span>
+                <br>
+                <span class="fa fa-line-chart" id="legend-sleap"></span>
+                <span class="item-title">
+                    &nbsp;<b>SleAp</b>
+                </span>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart" width="800" height="350"></canvas>
+            </div>
+        </div>
+    </div>
+</template>
